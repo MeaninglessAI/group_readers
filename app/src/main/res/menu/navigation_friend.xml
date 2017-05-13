@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/one"
+        android:title="书架" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/two"
+        android:title="发布" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/three"
+        android:title="计划" />
+
+</menu>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/find"
+        android:title="发现" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/guanzhu"
+        android:title="关注" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/plan"
+        android:title="计划" />
+
+
+    <item
+        android:id="@+id/navigation_notifications1"
+        android:icon="@drawable/group"
+        android:title="计划" />
+
+
+
+</menu>
