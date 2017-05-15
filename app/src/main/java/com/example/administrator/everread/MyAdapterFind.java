@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.everread.Activity.BookClassActivity;
+import com.example.administrator.everread.bean.Net_Book;
+
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2017/4/10.
@@ -20,9 +23,10 @@ public class MyAdapterFind extends RecyclerView.Adapter<MyAdapterFind.ViewHolder
     String[] name_class={"语文","数学","英语","地理","政治","历史","物理","化学","生物","体育"};
 
     Context mcontext;
-
-    public MyAdapterFind(Context mcontext) {
+    ArrayList<Net_Book> net_books;
+    public MyAdapterFind(Context mcontext,ArrayList<Net_Book> net_books) {
         this.mcontext = mcontext;
+        this.net_books = net_books;
     }
 
     @Override
@@ -49,7 +53,7 @@ public class MyAdapterFind extends RecyclerView.Adapter<MyAdapterFind.ViewHolder
         });
         if(holder.mRecyclerView.getAdapter()==null) {
 
-            holder.mRecyclerView.setAdapter(new MyAdapterBook(mcontext));
+            holder.mRecyclerView.setAdapter(new MyAdapterBook(mcontext,net_books));
         }else {
             holder.mRecyclerView.getAdapter().notifyDataSetChanged();
         }
@@ -65,7 +69,6 @@ public class MyAdapterFind extends RecyclerView.Adapter<MyAdapterFind.ViewHolder
         public final TextView textview;
         public final ImageView imageview;
         public final RecyclerView mRecyclerView;
-
         public ViewHolder(View itemView) {
             super(itemView);
             textview= (TextView) itemView.findViewById(R.id.item);

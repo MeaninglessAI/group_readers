@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EverRead.iml" filepath="$PROJECT_DIR$/EverRead.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/group_readers.iml" filepath="$PROJECT_DIR$/group_readers.iml" />
     </modules>
   </component>
 </project>
