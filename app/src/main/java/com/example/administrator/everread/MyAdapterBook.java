@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.administrator.everread.Activity.InfoBookActivity;
+import com.example.administrator.everread.Activity.book.InfoBookActivity;
 
 /**
  * Created by Administrator on 2017/4/11.

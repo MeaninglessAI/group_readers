@@ -1,4 +1,4 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.find;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,12 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.example.administrator.everread.MyAdapterFind;
 import com.example.administrator.everread.R;
-
-import static com.example.administrator.everread.R.id.header_find;
 
 /**
  * Created by Administrator on 2017/4/9.

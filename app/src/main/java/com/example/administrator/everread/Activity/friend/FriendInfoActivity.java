@@ -1,6 +1,5 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.friend;
 
-import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;

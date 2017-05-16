@@ -1,27 +1,25 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.MainActivity;
 
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.administrator.everread.Activity.find.FindActivity;
+import com.example.administrator.everread.Activity.friend.FriendActivity;
+import com.example.administrator.everread.Activity.group.contentOfInfo.ActicityGroupActivity;
+import com.example.administrator.everread.Activity.plan.PlanActivity;
 import com.example.administrator.everread.ImageAdapter;
 import com.example.administrator.everread.R;
 
@@ -100,7 +98,7 @@ public class PagerActivity extends ActivityGroup
         }else if (id == 2) {
             intent = new Intent(PagerActivity.this, PlanActivity.class);
         }else if (id == 3) {
-            intent = new Intent(PagerActivity.this, GroupActivity.class);
+            intent = new Intent(PagerActivity.this, ActicityGroupActivity.GroupActivity.class);
         }
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         //Activity 转为 View

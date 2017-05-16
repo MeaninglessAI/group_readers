@@ -8,32 +8,32 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.MainActivity">
+        <activity android:name=".Activity.LoginAndLoad.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.PagerActivity" />
-        <activity android:name=".Activity.FindActivity" />
-        <activity android:name=".Activity.FriendActivity" />
-        <activity android:name=".Activity.GroupActivity" />
-        <activity android:name=".Activity.PlanActivity" />
-        <activity android:name=".Activity.BookClassActivity" />
-        <activity android:name=".Activity.InfoBookActivity" />
-        <activity android:name=".Activity.ChangePlanActivity"/>
-        <activity android:name=".Activity.EditPlanActivity"/>
-        <activity android:name=".Activity.BookOfFriendActivity"/>
-        <activity android:name=".Activity.FriendInfoActivity"/>
-        <activity android:name=".Activity.FriendTalkActivity"/>
-        <activity android:name=".Activity.NoteOfFriendActivity"/>
-        <activity android:name=".Activity.PlanOfActivity"/>
-        <activity android:name=".Activity.ActicityGroupActivity"/>
-        <activity android:name=".Activity.GroupTalkActivity"/>
-        <activity android:name=".Activity.GroupInfoActivity"/>
-        <activity android:name=".Activity.MemberGroupActivity"/>
-        <activity android:name=".Activity.NewsGroupActivity"/>
+        <activity android:name=".Activity.MainActivity.PagerActivity" />
+        <activity android:name=".Activity.find.FindActivity" />
+        <activity android:name=".Activity.friend.FriendActivity" />
+        <activity android:name=".Activity.group.contentOfInfo.ActicityGroupActivity$GroupActivity" />
+        <activity android:name=".Activity.plan.PlanActivity" />
+        <activity android:name=".Activity.book.BookClassActivity" />
+        <activity android:name=".Activity.book.InfoBookActivity" />
+        <activity android:name=".Activity.plan.ChangePlanActivity"/>
+        <activity android:name=".Activity.plan.EditPlanActivity"/>
+        <activity android:name=".Activity.friend.BookOfFriendActivity"/>
+        <activity android:name=".Activity.friend.FriendInfoActivity"/>
+        <activity android:name=".Activity.friend.FriendTalkActivity"/>
+        <activity android:name=".Activity.friend.NoteOfFriendActivity"/>
+        <activity android:name=".Activity.friend.PlanOfActivity"/>
+        <activity android:name=".Activity.group.contentOfInfo.ActicityGroupActivity"/>
+        <activity android:name=".Activity.group.GroupTalkActivity"/>
+        <activity android:name=".Activity.group.GroupInfoActivity"/>
+        <activity android:name=".Activity.group.contentOfInfo.MemberGroupActivity"/>
+        <activity android:name=".Activity.group.contentOfInfo.NewsGroupActivity"/>
 
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.friend;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -133,7 +133,7 @@ public class FriendActivity extends AppCompatActivity {
                     holder.imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent=new Intent(FriendActivity.this,GroupTalkActivity.class);
+                            Intent intent=new Intent(FriendActivity.this,FriendTalkActivity.class);
                             startActivity(intent);
                         }
                     });

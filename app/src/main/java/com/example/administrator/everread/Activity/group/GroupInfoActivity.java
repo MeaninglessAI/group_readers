@@ -1,6 +1,5 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.group;
 
-import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.administrator.everread.Activity.group.contentOfInfo.ActicityGroupActivity;
+import com.example.administrator.everread.Activity.group.contentOfInfo.MemberGroupActivity;
+import com.example.administrator.everread.Activity.group.contentOfInfo.NewsGroupActivity;
 import com.example.administrator.everread.ImageAdapter;
 import com.example.administrator.everread.R;
 
@@ -24,6 +28,7 @@ public class GroupInfoActivity extends ActivityGroup {
 
     BottomNavigationView bottomNavigationView;
     private ImageAdapter topImgAdapter;
+    private ImageView back;
     public LinearLayout container;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +37,15 @@ public class GroupInfoActivity extends ActivityGroup {
 
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+
+        back= (ImageView) findViewById(R.id.back2);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(GroupInfoActivity.this,GroupTalkActivity.class);
+                startActivity(intent);
+            }
+        });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
