@@ -1,4 +1,4 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.LoginAndLoad;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.administrator.everread.Activity.MainActivity.PagerActivity;
 import com.example.administrator.everread.R;
 
 public class MainActivity extends AppCompatActivity  {

@@ -1,4 +1,4 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.group.contentOfInfo;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -27,7 +27,6 @@ public class MemberGroupActivity extends Activity {
 
     //TODO 群组成员列表
     private RecyclerView mRecyclerView;
-    private List<Friend> mDatas;
     private MemberAdapter mAdapter;
 
     @Override
@@ -36,20 +35,17 @@ public class MemberGroupActivity extends Activity {
         setContentView(R.layout.activity_membergroup);
 
         mRecyclerView= (RecyclerView) findViewById(R.id.member_group);
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new MemberAdapter();
         mRecyclerView.setAdapter(mAdapter);
     }
 
-
-
-
     class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ListHolder>{
+
+
         @Override
         public MemberAdapter.ListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_friend, parent, false);
+            View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_member_group, parent, false);
             return new ListHolder(layout);
         }
 
@@ -73,7 +69,7 @@ public class MemberGroupActivity extends Activity {
             public ListHolder(View itemView) {
                 super(itemView);
                 imageview= (ImageView) itemView.findViewById(R.id.header);
-                member_tag= (TextView) itemView.findViewById(tag_member);
+                member_tag= (TextView) itemView.findViewById(R.id.tag_member);
                 member_name= (TextView) itemView.findViewById(R.id.name);
             }
         }

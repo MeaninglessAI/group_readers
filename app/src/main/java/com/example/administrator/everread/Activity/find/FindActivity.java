@@ -1,4 +1,4 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.plan;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,9 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.example.administrator.everread.Activity.find.SearchActivity;
 import com.example.administrator.everread.MyAdapterFind;
 import com.example.administrator.everread.R;
 import com.example.administrator.everread.bean.Net_Book;
@@ -29,9 +28,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-
-import static com.example.administrator.everread.R.id.header_find;
-import static com.example.administrator.everread.R.id.news_group;
 
 /**
  * Created by Administrator on 2017/4/9.

@@ -1,4 +1,4 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.friend;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.administrator.everread.Activity.MainActivity.PagerActivity;
 import com.example.administrator.everread.R;
-import com.example.administrator.everread.bean.Friend;
 
 /**
  * Created by Administrator on 2017/5/6.

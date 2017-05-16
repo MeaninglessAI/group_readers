@@ -1,4 +1,4 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.plan;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -1,37 +1,32 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.book;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.administrator.everread.MyAdapterBookInfo;
 import com.example.administrator.everread.R;
-import com.example.administrator.everread.bean.Friend;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by Administrator on 2017/4/9.
+ * Created by Administrator on 2017/4/15.
  */
-public class GroupActivity extends AppCompatActivity {
+public class InfoBookActivity extends Activity {
 
     private RecyclerView mRecyclerView;
-    private List<Friend> mDatas;
+
     private HomeAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_04);
+        setContentView(R.layout.book);
 
-        initData();
-        mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview1);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.info_book);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new HomeAdapter();
         mRecyclerView.setAdapter(mAdapter);
@@ -42,27 +37,16 @@ public class GroupActivity extends AppCompatActivity {
     }
 
     private void setHeaderView(RecyclerView view){
-        View header = LayoutInflater.from(this).inflate(R.layout.header, view, false);
+        View header = LayoutInflater.from(this).inflate(R.layout.header_info, view, false);
         mAdapter.setHeaderView(header);
     }
 
     private void setFooterView(RecyclerView view){
-        View footer = LayoutInflater.from(this).inflate(R.layout.footer, view, false);
+        View footer = LayoutInflater.from(this).inflate(R.layout.footer_info, view, false);
         mAdapter.setFooterView(footer);
     }
 
-    protected void initData()
-    {
-        mDatas = new ArrayList<Friend>();
-        String[] name ={"武侠爱好者","我们都是诗人","射雕大侠","美国汇","英国通","历史家们","成长","我们一起度过的人生"};
-        String[] idea={"我想笑傲江湖","我才是天下最帅的","我才是天下最美的","我才是最厉害的","我拥有世界","我是坚强的","谢谢","我能编制我的梦想"};
-        int[] image={R.drawable.anastasia,R.drawable.andriy,R.drawable.dmitriy,R.drawable.dmitry,R.drawable.illya,R.drawable.konstantin,R.drawable.oleksii,
-                R.drawable.pavel};
-        for (int i =0; i < name.length; i++)
-        {
-            mDatas.add(new Friend(name[i],idea[i],image[i]));
-        }
-    }
+
 
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ListHolder>
     {
@@ -74,6 +58,34 @@ public class GroupActivity extends AppCompatActivity {
 
         private View mHeaderView;
         private View mFooterView;
+
+        private String[] infoBook={"从印染厂的实习生到纽约时装皇后\n" +
+                "\n" +
+                "从嫁给王子到独自创建时尚品牌\n" +
+                "\n" +
+                "她用一条裹身裙成为了她想成为的女人\n" +
+                "\n" +
+                "“继可可•香奈儿后时尚界最具市场号召力的女性”\n" +
+                "\n" +
+                "《福布斯》杂志2012全球时尚界最有影响力女性\n" +
+                "\n" +
+                "Diane von Furstenberg品牌创始人\n" +
+                "\n" +
+                "美国时装设计师协会（ CFDA）主席首部亲笔完整自传\n" +
+                "\n" +
+                "近百幅珍贵照片首次公开\n" +
+                "\n" +
+                "FaceBook首席运营官 雪莉•桑德伯格\n" +
+                "\n" +
+                "《Vogue》杂志美国版主编 安娜•温图尔\n" +
+                "\n" +
+                "《欲望都市》主演 莎拉•杰西卡•帕克"
+                ,"巴金（1904年11月25日－2005年10月17日）之一，"
+                ,"1.《激流》总序\n" +
+                "2.家\n" +
+                "3.附录"};
+
+        private String[] intro={"简介","作者简介","目录"};
 
         //HeaderView和FooterView的get和set函数
         public View getHeaderView() {
@@ -117,7 +129,7 @@ public class GroupActivity extends AppCompatActivity {
             if(mFooterView != null && viewType == TYPE_FOOTER){
                 return new ListHolder(mFooterView);
             }
-            View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_group, parent, false);
+            View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_book_info, parent, false);
             return new ListHolder(layout);
 
         }
@@ -127,22 +139,21 @@ public class GroupActivity extends AppCompatActivity {
         {
             if(getItemViewType(position) == TYPE_NORMAL){
                 if(holder instanceof ListHolder) {
-                    holder.tv_idea.setText(mDatas.get(position-1).getIdea_friend());
-                    holder.tv_name.setText(mDatas.get(position-1).getName_friend());
-                    holder.imageView.setImageResource(mDatas.get(position-1).getImage());
-                    holder.imageView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent=new Intent(GroupActivity.this,GroupTalkActivity.class);
-                            startActivity(intent);
-                        }
-                    });
+                    holder.tv_idea.setText(intro[position-1]);
+                    holder.tv_name.setText(infoBook[position-1]);
+                   // holder.imageView.setImageResource(mDatas.get(position-1).getImage());
                     // return;
                 }
                 return;
             }else if(getItemViewType(position) == TYPE_HEADER){
                 return;
             }else{
+                if(holder.recyclerView.getAdapter()==null) {
+
+                    holder.recyclerView.setAdapter(new MyAdapterBookInfo());
+                }else {
+                    holder.recyclerView.getAdapter().notifyDataSetChanged();
+                }
                 return;
             }
 
@@ -152,13 +163,13 @@ public class GroupActivity extends AppCompatActivity {
         public int getItemCount()
         {
             if(mHeaderView == null && mFooterView == null){
-                return mDatas.size();
+                return 3;
             }else if(mHeaderView == null && mFooterView != null){
-                return mDatas.size() + 1;
+                return 3 + 1;
             }else if (mHeaderView != null && mFooterView == null){
-                return mDatas.size() + 1;
+                return 3 + 1;
             }else {
-                return mDatas.size() + 2;
+                return 3 + 2;
             }
         }
 
@@ -167,7 +178,7 @@ public class GroupActivity extends AppCompatActivity {
 
             TextView tv_idea;
             TextView tv_name;
-            ImageView imageView;
+           RecyclerView recyclerView;
 
             public ListHolder(View view)
             {
@@ -177,13 +188,16 @@ public class GroupActivity extends AppCompatActivity {
                     return;
                 }
                 if (itemView == mFooterView){
+                    recyclerView= (RecyclerView) view.findViewById(R.id.footer_info);
+                    RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(view.getContext());
+                    layoutManager.canScrollHorizontally();
+                    recyclerView.setLayoutManager(layoutManager);
                     return;
                 }
-                tv_idea = (TextView) view.findViewById(R.id.ideaOffriend1);
-                tv_name= (TextView) view.findViewById(R.id.name_friend1);
-                imageView= (ImageView) view.findViewById(R.id.header_friend1);
+                tv_idea = (TextView) view.findViewById(R.id.intro);
+                tv_name= (TextView) view.findViewById(R.id.content_intro);
+
             }
         }
     }
-
 }

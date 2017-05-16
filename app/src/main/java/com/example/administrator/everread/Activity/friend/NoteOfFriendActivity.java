@@ -1,4 +1,4 @@
-package com.example.administrator.everread.Activity;
+package com.example.administrator.everread.Activity.friend;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,12 +10,12 @@ import com.example.administrator.everread.R;
  * Created by Administrator on 2017/5/8.
  */
 
-public class BookOfFriendActivity extends Activity {
-    //TODO 好友的书架
+public class NoteOfFriendActivity extends Activity {
+    //TODO 好友的笔记或者动态
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booksoffriend);
+        setContentView(R.layout.activity_noteoffriend);
     }
 }
