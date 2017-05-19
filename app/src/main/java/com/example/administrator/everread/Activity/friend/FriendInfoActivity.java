@@ -23,6 +23,7 @@ public class FriendInfoActivity extends ActivityGroup {
     BottomNavigationView bottomNavigationView;
     private ImageAdapter topImgAdapter;
     public LinearLayout container;
+    private int currPager2=0;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,10 +59,13 @@ public class FriendInfoActivity extends ActivityGroup {
         Intent intent =null;
         if (id == 0 ) {
             intent = new Intent(FriendInfoActivity.this, BookOfFriendActivity.class);//书架
+            currPager2=0;
         } else if (id == 1) {
             intent = new Intent(FriendInfoActivity.this, NoteOfFriendActivity.class);//发布
+            currPager2=1;
         }else if (id == 2) {
             intent = new Intent(FriendInfoActivity.this, PlanOfActivity.class);//朋友的计划
+            currPager2=2;
         }
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         //Activity 转为 View
