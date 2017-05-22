@@ -13,6 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.everread.R;
+import com.example.administrator.everread.bean.Net_Book;
+import com.example.administrator.everread.bean.SerializableHashMap;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import static com.example.administrator.everread.Activity.FindActivity.map_book;
 
 /**
  * Created by Administrator on 2017/4/15.
@@ -22,6 +29,11 @@ public class BookClassActivity extends Activity {
     TextView textView_header;
     ImageView imageView;
     RecyclerView recyclerView;
+    public static ArrayList<Net_Book> net_books;
+    public  static Net_Book infobookactivity_book;
+    SerializableHashMap serializableMap;
+    String nameString;
+    //public static Net_Book book_details;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +44,18 @@ public class BookClassActivity extends Activity {
 
         recyclerView= (RecyclerView) findViewById(R.id.booktodisplay);
 
-        RecyclerView.LayoutManager layoutManager=new GridLayoutManager(BookClassActivity.this,3);
+        RecyclerView.LayoutManager layoutManager=new GridLayoutManager(BookClassActivity.this,1);
 
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new ClassAdapter(BookClassActivity.this));
-        Intent intent = getIntent();
-        String nameString = intent.getStringExtra("name");
 
+
+        Intent intent = getIntent();
+        nameString = (String) intent.getStringExtra("name");
+        //int position = (int) intent.getIntExtra("position");
+        net_books = (ArrayList<Net_Book>)map_book.get(nameString);
+
+
+        recyclerView.setAdapter(new ClassAdapter(BookClassActivity.this,nameString,net_books));
         textView_header.setText(nameString);
 
 
@@ -56,9 +73,12 @@ public class BookClassActivity extends Activity {
     private class ClassAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         Context mcontext;
-
-        public ClassAdapter(Context mcontext) {
+        ArrayList<Net_Book> net_books;
+        String nameString;
+        public ClassAdapter(Context mcontext,String nameString,ArrayList<Net_Book> net_books) {
             this.mcontext = mcontext;
+            this.nameString = nameString;
+            this.net_books = net_books;
         }
 
         @Override
@@ -68,17 +88,23 @@ public class BookClassActivity extends Activity {
         }
 
         @Override
-        public void onBindViewHolder(MyViewHolder holder, int position) {
-            holder.imageView.setImageResource(R.mipmap.img2);
+        public void onBindViewHolder(MyViewHolder holder, final int position) {
+            holder.imageView.setImageBitmap(net_books.get(position).getImgface());
             holder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent=new Intent(mcontext,InfoBookActivity.class);
-                    mcontext.startActivity(intent);
 
+                    intent.putExtra("name",nameString);
+                    //book_details = net_books.get(position);
+                    infobookactivity_book =  net_books.get(position);
+                    //int p = position;
+                    //intent.putExtra("position",p);
+                    //intent.putExtra("book", net_books.get(position));
+                    mcontext.startActivity(intent);
                 }
             });
-            holder.textViewname.setText("人民的名义");
+            holder.textViewname.setText(net_books.get(position).getBookName());
             holder.textViewintro.setText("这是一本好书");
         }
 
@@ -86,7 +112,10 @@ public class BookClassActivity extends Activity {
 
         @Override
         public int getItemCount() {
-            return 30;
+            if(net_books !=null )
+                return net_books.size();
+            else
+                return 5;
         }
     }
 

@@ -1,5 +1,7 @@
 package com.example.administrator.everread.bean;
 
+import java.util.ArrayList;
+
 /**
  * Created by Administrator on 2017/4/16.
  */
@@ -9,6 +11,17 @@ public class Book {
     private String name_book;
     private int progressBar;
     private int plan_tree;
+    private ArrayList<Comment>  comments;
+
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
+    }
+
+
 
 
     public Book(int book_face, String name_book, int progressBar, int plan_tree) {

@@ -2,6 +2,7 @@ package com.example.administrator.everread;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,21 +13,27 @@ import android.widget.TextView;
 
 import com.example.administrator.everread.Activity.BookClassActivity;
 import com.example.administrator.everread.bean.Net_Book;
+import com.example.administrator.everread.bean.SerializableHashMap;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import static com.example.administrator.everread.Activity.FindActivity.map_book;
 
 /**
  * Created by Administrator on 2017/4/10.
  */
 public class MyAdapterFind extends RecyclerView.Adapter<MyAdapterFind.ViewHolder> {
 
-    String[] name_class={"语文","数学","英语","地理","政治","历史","物理","化学","生物","体育"};
+    String[] name_class={"热门","小说","名著","童话"};
 
     Context mcontext;
-    ArrayList<Net_Book> net_books;
-    public MyAdapterFind(Context mcontext,ArrayList<Net_Book> net_books) {
+    //ArrayList<Net_Book> net_books;
+    HashMap<String,ArrayList<Net_Book>> map_books;
+    public MyAdapterFind(Context mcontext,HashMap<String,ArrayList<Net_Book>> map_books) {
         this.mcontext = mcontext;
-        this.net_books = net_books;
+        this.map_books = map_book;
     }
 
     @Override
@@ -47,13 +54,20 @@ public class MyAdapterFind extends RecyclerView.Adapter<MyAdapterFind.ViewHolder
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(mcontext,BookClassActivity.class);
+
                 intent.putExtra("name",name_class[position]);
+               // intent.putExtra("position",position);
+                //Bundle bundle = new Bundle();
+                //bundle.putString("name",name_class[position]);
+
+                //intent.putExtras(bundle);
+
                 mcontext.startActivity(intent);
             }
         });
         if(holder.mRecyclerView.getAdapter()==null) {
 
-            holder.mRecyclerView.setAdapter(new MyAdapterBook(mcontext,net_books));
+            holder.mRecyclerView.setAdapter(new MyAdapterBook(mcontext,map_book.get(name_class[position])));
         }else {
             holder.mRecyclerView.getAdapter().notifyDataSetChanged();
         }
@@ -62,7 +76,7 @@ public class MyAdapterFind extends RecyclerView.Adapter<MyAdapterFind.ViewHolder
 
     @Override
     public int getItemCount() {
-        return 10;
+        return name_class.length;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

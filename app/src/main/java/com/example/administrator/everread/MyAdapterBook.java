@@ -57,7 +57,12 @@ public class MyAdapterBook extends RecyclerView.Adapter<MyAdapterBook.ViewHolder
        if(net_books!=null){
            Net_Book book = net_books.get(position);
            holder.textView.setText(book.getBookName());
-           holder.imageView1.setImageBitmap(book.getImgface());
+           if(book.getImgface() != null){
+               holder.imageView1.setImageBitmap(book.getImgface());
+           }else{
+               holder.imageView1.setImageResource(R.mipmap.img1);
+           }
+
 
        }else {
            holder.textView.setText(name_book[position]);
@@ -68,7 +73,11 @@ public class MyAdapterBook extends RecyclerView.Adapter<MyAdapterBook.ViewHolder
 
     @Override
     public int getItemCount() {
-        return 6;
+        if(net_books != null){
+            return net_books.size();
+        }else{
+            return 6;
+        }
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

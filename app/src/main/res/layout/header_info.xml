@@ -7,9 +7,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
+        android:id="@+id/boo_face"
         android:background="#fee"
-        android:layout_width="wrap_content"
-        android:layout_height="240dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/andriy"/>
 
     <RelativeLayout
